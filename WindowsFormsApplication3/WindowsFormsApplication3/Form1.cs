@@ -38,8 +38,7 @@ namespace WindowsFormsApplication3
                 catch(Exception) { return 0; }
             }
         }
-        public Form1()
-        { InitializeComponent(); }
+        public Form1(){ InitializeComponent(); }
         private void SaveButton_Click(object sender, EventArgs e)
         {
             if (A > 0 && B > 0)
