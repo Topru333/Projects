@@ -20,19 +20,17 @@ namespace WindowsFormsApplication3
     }
     abstract class Figure
     {
-        public static string operator >(Figure f1,Figure f2)
+        protected int a, b, c;
+        public static bool operator >(Figure f1,Figure f2)
         {
-            if (f1.S > f2.S) return "true";
-            else if(f1.S == f2.S) { return "same"; }
-            else return "false";
+            if (f1.S > f2.S) return true;
+            else return false;
         }
-        public static string operator <(Figure f1, Figure f2)
+        public static bool operator <(Figure f1, Figure f2)
         {
-            if (f1.S < f2.S) return "true";
-            else if (f1.S == f2.S) { return "same"; }
-            else return "false";
+            if (f1.S < f2.S) return true;
+            else return false;
         }
-        protected int a,b,c;
         public int A
         {
             get { return a; }
@@ -60,7 +58,9 @@ namespace WindowsFormsApplication3
         }
         public string MoreThan(Figure another)
         {
-            return (this > another);
+            if (this.S > another.S) return "true";
+            else if(this.S == another.S) { return "same"; }
+            else return "false";
         }
     }
     class Parallelepiped : Figure
