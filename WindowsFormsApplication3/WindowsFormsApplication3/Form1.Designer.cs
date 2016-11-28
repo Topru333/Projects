@@ -40,10 +40,11 @@
             this.P = new System.Windows.Forms.Label();
             this.S = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ABC = new System.Windows.Forms.Button();
             this.Rnumbers = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.V = new System.Windows.Forms.Label();
-            this.ABC = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -167,6 +168,16 @@
             this.panel1.Size = new System.Drawing.Size(259, 91);
             this.panel1.TabIndex = 12;
             // 
+            // ABC
+            // 
+            this.ABC.Location = new System.Drawing.Point(241, 42);
+            this.ABC.Name = "ABC";
+            this.ABC.Size = new System.Drawing.Size(11, 14);
+            this.ABC.TabIndex = 15;
+            this.ABC.Text = "button1";
+            this.ABC.UseVisualStyleBackColor = true;
+            this.ABC.Click += new System.EventHandler(this.ABC_Click);
+            // 
             // Rnumbers
             // 
             this.Rnumbers.Location = new System.Drawing.Point(161, 13);
@@ -196,21 +207,24 @@
             this.V.TabIndex = 12;
             this.V.Text = "V";
             // 
-            // ABC
+            // panel2
             // 
-            this.ABC.Location = new System.Drawing.Point(241, 42);
-            this.ABC.Name = "ABC";
-            this.ABC.Size = new System.Drawing.Size(11, 14);
-            this.ABC.TabIndex = 15;
-            this.ABC.Text = "button1";
-            this.ABC.UseVisualStyleBackColor = true;
-            this.ABC.Click += new System.EventHandler(this.ABC_Click);
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.panel2.Location = new System.Drawing.Point(12, 99);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1, 0);
+            this.panel2.TabIndex = 13;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(269, 99);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(269, 203);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.ComboInfo);
             this.Controls.Add(this.ComboMore1);
             this.Controls.Add(this.panel1);
@@ -242,6 +256,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button Rnumbers;
         private System.Windows.Forms.Button ABC;
+        private System.Windows.Forms.Panel panel2;
     }
 }
 

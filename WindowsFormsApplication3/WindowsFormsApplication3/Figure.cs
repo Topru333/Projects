@@ -8,6 +8,13 @@ namespace WindowsFormsApplication3
 {
     class Base
     {
+        /// <summary>
+        /// Метод создания фигуры
+        /// </summary>
+        /// <param name="a">сторона</param>
+        /// <param name="b">сторона</param>
+        /// <param name="c">сторона(0 по умл.)</param>
+        /// <returns></returns>
         public static Figure CreateFigure(int a, int b, int c = 0)
         {
             Figure F;
@@ -20,7 +27,13 @@ namespace WindowsFormsApplication3
     }
     abstract class Figure
     {
-        protected int a, b, c;
+        protected int a, b, c;//стороны
+        /// <summary>
+        /// Перегрузка операторов
+        /// </summary>
+        /// <param name="f1"></param>
+        /// <param name="f2"></param>
+        /// <returns></returns>
         public static bool operator >(Figure f1,Figure f2)
         {
             if (f1.S > f2.S) return true;
@@ -52,15 +65,33 @@ namespace WindowsFormsApplication3
         public abstract int S { get; }
         public abstract int V { get; }
         public abstract int P { get; }
+        /// <summary>
+        /// Информация о типе фигуры
+        /// </summary>
+        /// <returns> Имя фигуры </returns>
         public string About()
         {
             return this.GetType().Name;
         }
+        /// <summary>
+        /// Проверка размера фигуры
+        /// </summary>
+        /// <param name="another">Фигура с которой сверяем</param>
+        /// <returns> ответ верно ли </returns>
         public string MoreThan(Figure another)
         {
-            if (this.S > another.S) return "true";
-            else if(this.S == another.S) { return "same"; }
-            else return "false";
+            if (this > another)
+            {
+                return "true";
+            }
+            else
+            {
+                if(another > this)
+                {
+                    return "false";
+                }
+                else { return "same"; }
+            }
         }
     }
     class Parallelepiped : Figure

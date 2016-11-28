@@ -50,6 +50,21 @@ namespace WindowsFormsApplication3
             }
             else { MessageBox.Show("Wrong sides!"); }
         }
+        /// <summary>
+        /// Обновление лэйбэлов с инфой
+        /// </summary>
+        /// <param name="F">Фигура из которой инфа</param>
+        private void AddToTextABC(Figure F)
+        {
+            S.Text = "S:" + F.S.ToString();
+            P.Text = "P:" + F.P.ToString();
+            try { V.Text = "V:" + F.V.ToString(); }
+            catch (Exception) { V.Text = "V:0"; }
+        }
+        /// <summary>
+        /// Добавление новой фигуры в списки
+        /// </summary>
+        /// <param name="F"></param>
         private void AddToComboBox(Figure F)
         {
             ComboInfo.Items.Add(ComboInfo.Items.Count+1); 
@@ -59,11 +74,22 @@ namespace WindowsFormsApplication3
         }
         private void ComboInfo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Figure f = (Figure)Figures[int.Parse(ComboInfo.SelectedItem.ToString())-1];
-            S.Text = "S:"+ f.S.ToString();
-            P.Text = "P:"+f.P.ToString();
-            try { V.Text = "V:" + f.V.ToString(); }
-            catch (Exception) { V.Text = "V:0"; }
+            Figure F = (Figure)Figures[int.Parse(ComboInfo.SelectedItem.ToString())-1];
+            AddToTextABC(F);
+            RectanglePanelSize(F);
+        }
+        private void RectanglePanelSize(Figure F)
+        {
+            if (F.C > 0)
+            {
+                panel2.Height = 0;
+                panel2.Width = 0;
+            }
+            else
+            {
+                panel2.Height = F.A * 5;
+                panel2.Width = F.B * 5;
+            }
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -73,12 +99,12 @@ namespace WindowsFormsApplication3
         }
         private void MoreButton_Click(object sender, EventArgs e)
         {
-            Figure f1, f2;
+            Figure F1, F2;
             if (ComboMore1.SelectedItem != null&& ComboMore2.SelectedItem != null)
             {
-                 f1 = (Figure)Figures[int.Parse(ComboMore1.SelectedItem.ToString()) - 1];
-                 f2 = (Figure)Figures[int.Parse(ComboMore2.SelectedItem.ToString()) - 1];
-                 MoreAnswer.Text = f1.MoreThan(f2);
+                 F1 = (Figure)Figures[int.Parse(ComboMore1.SelectedItem.ToString()) - 1];
+                 F2 = (Figure)Figures[int.Parse(ComboMore2.SelectedItem.ToString()) - 1];
+                 MoreAnswer.Text = F1.MoreThan(F2);
             }
             else
             {
@@ -97,7 +123,7 @@ namespace WindowsFormsApplication3
             if(ComboInfo.SelectedItem != null)
             {
                 Figure f1 = (Figure)Figures[int.Parse(ComboInfo.SelectedItem.ToString()) - 1];
-                MessageBox.Show("A:"+f1.A+" B:"+f1.B+" C:"+f1.C);
+                MessageBox.Show("A:"+f1.A+" B:"+f1.B+" C:"+f1.C+" Figure:"+f1.About());
             }
         }
     }
