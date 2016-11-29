@@ -123,7 +123,7 @@ namespace WindowsFormsApplication3
             if(ComboInfo.SelectedItem != null)
             {
                 Figure f1 = (Figure)Figures[int.Parse(ComboInfo.SelectedItem.ToString()) - 1];
-                MessageBox.Show("A:"+f1.A+" B:"+f1.B+" C:"+f1.C+" Figure:"+f1.About());
+                MessageBox.Show(f1.About());
             }
         }
     }
