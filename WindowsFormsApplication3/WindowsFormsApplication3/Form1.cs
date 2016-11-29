@@ -122,8 +122,8 @@ namespace WindowsFormsApplication3
         {
             if(ComboInfo.SelectedItem != null)
             {
-                Figure f1 = (Figure)Figures[int.Parse(ComboInfo.SelectedItem.ToString()) - 1];
-                MessageBox.Show(f1.About());
+                Figure F1 = (Figure)Figures[int.Parse(ComboInfo.SelectedItem.ToString()) - 1];
+                MessageBox.Show(F1.About());
             }
         }
     }
