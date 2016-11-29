@@ -71,7 +71,7 @@ namespace WindowsFormsApplication3
         /// <returns> Имя фигуры </returns>
         public string About()
         {
-            return this.GetType().Name;
+            return "A:" + this.A + " B:" + this.B + " C:" + this.C + " Figure:"+this.GetType().Name;
         }
         /// <summary>
         /// Проверка размера фигуры
